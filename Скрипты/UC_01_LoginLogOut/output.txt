@@ -1,11 +1,11 @@
 Warning: Failed to post to 'http://127.0.0.1:8182/shunra/api/emulation/packetCaptureOnly', retcode=7.
 Warning: Failed to start NV emulation. Perhaps the NV server is not working, and therefore a NV report will not be generated.
-Virtual User Script started at: 07.09.2022 20:38:49
+Virtual User Script started at: 10.09.2022 10:29:01
 Starting action vuser_init.
 Web Turbo Replay of LoadRunner 2021.0.0 for Windows 10; build 430 (џэт 05 2021 19:27:22)  	[MsgId: MMSG-26983]
 Run mode: HTML  	[MsgId: MMSG-26993]
 Replay user agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko  	[MsgId: MMSG-26988]
-Runtime Settings file: "E:\Micro Focus\Profile\Documents\VuGen\Scripts\UC_01_LoginLogOut\\default.cfg"  	[MsgId: MMSG-27141]
+Runtime Settings file: "E:\Micro Focus\Profile\Documents\VuGen\LoadTesting\UC_01_LoginLogOut\\default.cfg"  	[MsgId: MMSG-27141]
 Warning: Failed to get NV emulation handle.
 Ending action vuser_init.
 Running Vuser...
@@ -26,27 +26,33 @@ Action.c(18): Detected non-resource "http://localhost:1080/cgi-bin/nav.pl?in=hom
 Action.c(18): Detected non-resource "http://localhost:1080/WebTours/home.html" in "http://localhost:1080/cgi-bin/welcome.pl?signOff=true"  	[MsgId: MMSG-26574]
 Action.c(18): Found resource "http://localhost:1080/WebTours/images/mer_login.gif" in HTML "http://localhost:1080/cgi-bin/nav.pl?in=home"  	[MsgId: MMSG-26659]
 Action.c(18): Registered web_reg_find successful for "Text=sign up now" (count=1)  	[MsgId: MMSG-26364]
-Action.c(18): web_url("WebTours") was successful, 10079 body bytes, 2371 header bytes, 24 chunking overhead bytes  	[MsgId: MMSG-26385]
-Action.c(30): web_reg_find started  	[MsgId: MMSG-26355]
-Action.c(30): Registering web_reg_find was successful  	[MsgId: MMSG-26390]
-Action.c(34): web_submit_data("login.pl") started  	[MsgId: MMSG-26355]
-Action.c(34): Detected non-resource "http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home" in "http://localhost:1080/cgi-bin/login.pl"  	[MsgId: MMSG-26574]
-Action.c(34): Detected non-resource "http://localhost:1080/cgi-bin/login.pl?intro=true" in "http://localhost:1080/cgi-bin/login.pl"  	[MsgId: MMSG-26574]
-Action.c(34): Found resource "http://localhost:1080/WebTours/images/flights.gif" in HTML "http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home"  	[MsgId: MMSG-26659]
-Action.c(34): Found resource "http://localhost:1080/WebTours/images/itinerary.gif" in HTML "http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home"  	[MsgId: MMSG-26659]
-Action.c(34): Found resource "http://localhost:1080/WebTours/images/in_home.gif" in HTML "http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home"  	[MsgId: MMSG-26659]
-Action.c(34): Found resource "http://localhost:1080/WebTours/images/signoff.gif" in HTML "http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home"  	[MsgId: MMSG-26659]
-Action.c(34): Registered web_reg_find successful for "Text=Welcome, <b>user1</b>" (count=1)  	[MsgId: MMSG-26364]
-Action.c(34): web_submit_data("login.pl") was successful, 5780 body bytes, 2047 header bytes, 36 chunking overhead bytes  	[MsgId: MMSG-26385]
-Action.c(55): web_reg_find started  	[MsgId: MMSG-26355]
-Action.c(55): Registering web_reg_find was successful  	[MsgId: MMSG-26390]
-Action.c(59): web_url("SignOff Button") started  	[MsgId: MMSG-26355]
-Action.c(59): Detected non-resource "http://localhost:1080/cgi-bin/nav.pl?in=home" in "http://localhost:1080/cgi-bin/welcome.pl?signOff=1"  	[MsgId: MMSG-26574]
-Action.c(59): Detected non-resource "http://localhost:1080/WebTours/home.html" in "http://localhost:1080/cgi-bin/welcome.pl?signOff=1"  	[MsgId: MMSG-26574]
-Action.c(59): Retrieving data from cache for "http://localhost:1080/WebTours/home.html"  	[MsgId: MMSG-26558]
-Action.c(59): Resource "http://localhost:1080/WebTours/images/mer_login.gif" is in the cache already and will not be downloaded again  	[MsgId: MMSG-26655]
-Action.c(59): Registered web_reg_find successful for "Text=sign up now" (count=1)  	[MsgId: MMSG-26364]
-Action.c(59): web_url("SignOff Button") was successful, 2175 body bytes, 582 header bytes, 24 chunking overhead bytes  	[MsgId: MMSG-26385]
+Action.c(18): web_url("WebTours") was successful, 10080 body bytes, 2371 header bytes, 24 chunking overhead bytes  	[MsgId: MMSG-26385]
+Action.c(30): Notify: Transaction "UC_01_Login" started.
+Action.c(30): Warning: Failed to get NV emulation handle.
+Action.c(32): web_reg_find started  	[MsgId: MMSG-26355]
+Action.c(32): Registering web_reg_find was successful  	[MsgId: MMSG-26390]
+Action.c(36): web_submit_data("login.pl") started  	[MsgId: MMSG-26355]
+Action.c(36): Detected non-resource "http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home" in "http://localhost:1080/cgi-bin/login.pl"  	[MsgId: MMSG-26574]
+Action.c(36): Detected non-resource "http://localhost:1080/cgi-bin/login.pl?intro=true" in "http://localhost:1080/cgi-bin/login.pl"  	[MsgId: MMSG-26574]
+Action.c(36): Found resource "http://localhost:1080/WebTours/images/flights.gif" in HTML "http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home"  	[MsgId: MMSG-26659]
+Action.c(36): Found resource "http://localhost:1080/WebTours/images/itinerary.gif" in HTML "http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home"  	[MsgId: MMSG-26659]
+Action.c(36): Found resource "http://localhost:1080/WebTours/images/in_home.gif" in HTML "http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home"  	[MsgId: MMSG-26659]
+Action.c(36): Found resource "http://localhost:1080/WebTours/images/signoff.gif" in HTML "http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home"  	[MsgId: MMSG-26659]
+Action.c(36): Registered web_reg_find successful for "Text=Welcome, <b>user1</b>" (count=1)  	[MsgId: MMSG-26364]
+Action.c(36): web_submit_data("login.pl") was successful, 5780 body bytes, 2047 header bytes, 36 chunking overhead bytes  	[MsgId: MMSG-26385]
+Action.c(55): Notify: Transaction "UC_01_Login" ended with a "Pass" status (Duration: 0,1741 Wasted Time: 0,0063).
+Action.c(57): Notify: Transaction "UC_01_LogOut" started.
+Action.c(57): Warning: Failed to get NV emulation handle.
+Action.c(61): web_reg_find started  	[MsgId: MMSG-26355]
+Action.c(61): Registering web_reg_find was successful  	[MsgId: MMSG-26390]
+Action.c(65): web_url("SignOff Button") started  	[MsgId: MMSG-26355]
+Action.c(65): Detected non-resource "http://localhost:1080/cgi-bin/nav.pl?in=home" in "http://localhost:1080/cgi-bin/welcome.pl?signOff=1"  	[MsgId: MMSG-26574]
+Action.c(65): Detected non-resource "http://localhost:1080/WebTours/home.html" in "http://localhost:1080/cgi-bin/welcome.pl?signOff=1"  	[MsgId: MMSG-26574]
+Action.c(65): Retrieving data from cache for "http://localhost:1080/WebTours/home.html"  	[MsgId: MMSG-26558]
+Action.c(65): Resource "http://localhost:1080/WebTours/images/mer_login.gif" is in the cache already and will not be downloaded again  	[MsgId: MMSG-26655]
+Action.c(65): Registered web_reg_find successful for "Text=sign up now" (count=1)  	[MsgId: MMSG-26364]
+Action.c(65): web_url("SignOff Button") was successful, 2176 body bytes, 582 header bytes, 24 chunking overhead bytes  	[MsgId: MMSG-26385]
+Action.c(75): Notify: Transaction "UC_01_LogOut" ended with a "Pass" status (Duration: 0,1580 Wasted Time: 0,0047).
 Ending action Action.
 Ending iteration 1.
 Ending Vuser...

@@ -27,6 +27,8 @@ Action()
 
 	lr_think_time(5);
 	
+	lr_start_transaction("UC_01_Login");
+	
 	web_reg_find("Fail=NotFound",
 		"Text=Welcome, <b>{username}</b>",
 		LAST);
@@ -48,8 +50,12 @@ Action()
 		"Name=login.y", "Value=13", ENDITEM, 
 		LAST);
 	
+	lr_end_transaction("UC_01_Login", LR_AUTO);
+	
 	lr_think_time(5);
 	
+	lr_start_transaction("UC_04_CheckItinerary");
+
 	web_reg_find("Fail=NotFound",
 		"Text=scheduled flights",
 		LAST);
@@ -64,7 +70,11 @@ Action()
 		"Mode=HTML", 
 		LAST);
 	
+	lr_end_transaction("UC_04_CheckItinerary", LR_AUTO);
+
 	lr_think_time(5);
+	
+	lr_start_transaction("UC_01_LogOut");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=sign up now",
@@ -79,6 +89,8 @@ Action()
 		"Snapshot=t29.inf", 
 		"Mode=HTML", 
 		LAST);
+	
+	lr_end_transaction("UC_01_LogOut", LR_AUTO);
 
 	return 0;
 }

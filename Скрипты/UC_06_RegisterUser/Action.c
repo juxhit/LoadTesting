@@ -9,6 +9,12 @@ Action()
 		"Snapshot=t16.inf", 
 		"Mode=HTML", 
 		LAST);
+	
+	lr_start_transaction("UC_6_RegisterUser");
+	
+	web_reg_find("Fail=NotFound",
+		"Text=sign up now",
+		LAST);
 
 	web_link("sign up now", 
 		"Text=sign up now", 
@@ -17,8 +23,12 @@ Action()
 
 	web_set_sockets_option("SSL_VERSION", "AUTO");
 
-	lr_think_time(22);
-
+	lr_think_time(5);
+	
+	web_reg_find("Fail=NotFound",
+		"Text=First time registering",
+		LAST);
+	
 	web_submit_form("login.pl", 
 		"Snapshot=t18.inf", 
 		ITEMDATA, 
@@ -37,11 +47,19 @@ Action()
 		"Src=/WebTours/images/button_next.gif", 
 		"Snapshot=t19.inf", 
 		LAST);
+	
+	lr_end_transaction("UC_6_RegisterUser", LR_AUTO);
+
+	lr_think_time(5);
+	
+	lr_start_transaction("UC_01_LogOut");
 
 	web_image("SignOff Button", 
 		"Alt=SignOff Button", 
 		"Snapshot=t20.inf", 
 		LAST);
+	
+	lr_end_transaction("UC_01_LogOut", LR_AUTO);
 
 	return 0;
 }

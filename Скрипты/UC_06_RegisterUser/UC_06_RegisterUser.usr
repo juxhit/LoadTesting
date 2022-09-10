@@ -52,9 +52,12 @@ vuser_init=cci
 Action=cci
 vuser_end=cci
 [TransactionsOrder]
-Order=
+Order="UC_6_RegisterUser__*delimiter*__UC_01_LogOut"
 [StateManagement]
 LastReplayStatus=0
 [ActiveReplay]
 LastReplayedRunName=
 ActiveRunName=
+[Transactions]
+UC_6_RegisterUser=
+UC_01_LogOut=
