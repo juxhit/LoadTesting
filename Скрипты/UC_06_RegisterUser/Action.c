@@ -22,7 +22,7 @@ Action()
 	lr_start_transaction("UC_OpenRegistration");
 	
 	web_reg_find("Fail=NotFound",
-		"Text=sign up now",
+		"Text=First time registering",
 		LAST);
 
 	web_link("sign up now", 
@@ -37,9 +37,9 @@ Action()
 	lr_think_time(5);
 	
 	lr_start_transaction("UC_FillRegistration");
-
+	
 	web_reg_find("Fail=NotFound",
-		"Text=First time registering",
+		"Text/IC=Thank you, <b>{username}</b>",
 		LAST);
 	
 	web_submit_form("login.pl", 
@@ -66,6 +66,10 @@ Action()
 	lr_think_time(5);
 	
 	lr_start_transaction("UC_FinishRegistration");
+	
+	web_reg_find("Fail=NotFound",
+		"Text=Welcome, <b>{username}</b>",
+		LAST);
 
 	web_url("button_next.gif", 
 		"URL=http://localhost:1080/cgi-bin/welcome.pl?page=menus", 
@@ -82,6 +86,10 @@ Action()
 	lr_think_time(5);
 	
 	lr_start_transaction("UC_01_LogOut");
+	
+	web_reg_find("Fail=NotFound",
+		"Text=sign up now",
+		LAST);
 
 	web_image("SignOff Button", 
 		"Alt=SignOff Button", 

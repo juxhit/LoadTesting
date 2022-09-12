@@ -59,7 +59,7 @@ Action()
 	lr_think_time(5);
 	
 	lr_start_transaction("UC_OpenItinerary");
-
+	
 	web_reg_find("Fail=NotFound",
 		"Text=scheduled flights",
 		LAST);
