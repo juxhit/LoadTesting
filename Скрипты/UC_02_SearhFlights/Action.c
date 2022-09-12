@@ -13,6 +13,8 @@ Action()
 		"RequestUrl=*/nav.pl*",
 		LAST);
 	
+	lr_start_transaction("UC_HomePage");
+	
 	web_reg_find("Fail=NotFound",
 		"Text=sign up now",
 		LAST);
@@ -26,10 +28,12 @@ Action()
 		"Snapshot=t21.inf", 
 		"Mode=HTML", 
 		LAST);
+	
+	lr_end_transaction("UC_HomePage", LR_AUTO);
 
 	lr_think_time(5);
 	
-	lr_start_transaction("UC_01_Login");
+	lr_start_transaction("UC_Login");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=Welcome, <b>{username}</b>",
@@ -52,11 +56,11 @@ Action()
 		"Name=login.y", "Value=13", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("UC_01_Login", LR_AUTO);
+	lr_end_transaction("UC_Login", LR_AUTO);
 	
 	lr_think_time(5);
 	
-	lr_start_transaction("UC_02_SearchFlights");
+	lr_start_transaction("UC_OpenFlights");
 
 	web_reg_find("Fail=NotFound",
 		"Text=Departure City",
@@ -72,8 +76,12 @@ Action()
 		"Mode=HTML", 
 		LAST);
 	
+	lr_end_transaction("UC_OpenFlights", LR_AUTO);
+
 	lr_think_time(5);
 	
+	lr_start_transaction("UC_SearchFlights");
+
 	web_reg_find("Fail=NotFound",
 		"Text=Flight departing from <B>{depart}</B> to <B>{arrive}</B> on <B>{departDate}",
 		LAST);
@@ -102,12 +110,11 @@ Action()
 		"Name=findFlights.y", "Value=13", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("UC_02_SearchFlights", LR_AUTO);
+	lr_end_transaction("UC_SearchFlights", LR_AUTO);
 
-	
 	lr_think_time(5);
 	
-	lr_start_transaction("UC_01_LogOut");
+	lr_start_transaction("UC_LogOut");
 
 	web_reg_find("Fail=NotFound",
 		"Text=sign up now",
@@ -123,7 +130,7 @@ Action()
 		"Mode=HTML", 
 		LAST);
 	
-	lr_end_transaction("UC_01_LogOut", LR_AUTO);
+	lr_end_transaction("UC_LogOut", LR_AUTO);
 
 	return 0;
 }

@@ -44,7 +44,6 @@ Failed to get information of process Id: 2628
 Failed to get information of process Id: 2700
 Failed to get information of process Id: 2720
 Failed to get information of process Id: 2756
-Failed to get information of process Id: 2832
 Failed to get information of process Id: 2856
 Failed to get information of process Id: 2960
 Failed to get information of process Id: 3048
@@ -71,14 +70,11 @@ Failed to get information of process Id: 4560
 Failed to get information of process Id: 4668
 PROCESS 0x1290      adguardvpnsvc.exe
 PROCESS 0x1298      schedul2.exe
-PROCESS 0x12a0      armsvc.exe
 PROCESS 0x12b0      afcdpsrv.exe
 PROCESS 0x12c0      agmservice.exe
 PROCESS 0x12d8      agsservice.exe
 PROCESS 0x12f4      anydesk.exe
-Failed to get information of process Id: 4876
 Failed to get information of process Id: 4896
-Failed to get information of process Id: 4920
 Failed to get information of process Id: 4936
 Failed to get information of process Id: 4952
 Failed to get information of process Id: 4968
@@ -120,7 +116,6 @@ Failed to get information of process Id: 9504
 Failed to get information of process Id: 9664
 Failed to get information of process Id: 9716
 Failed to get information of process Id: 9812
-Failed to get information of process Id: 9852
 Failed to get information of process Id: 10232
 Failed to get information of process Id: 9304
 Failed to get information of process Id: 10256
@@ -140,7 +135,6 @@ Failed to get information of process Id: 10728
 Failed to get information of process Id: 12408
 Failed to get information of process Id: 12416
 Failed to get information of process Id: 12456
-Failed to get information of process Id: 12524
 Failed to get information of process Id: 13004
 Failed to get information of process Id: 13364
 PROCESS 0x34f0      nvidia web helper.exe
@@ -162,7 +156,6 @@ PROCESS 0x1408      plex update service.exe
 Failed to get information of process Id: 6580
 PROCESS 0x16d0      syncagentsrv.exe
 Failed to get information of process Id: 5760
-Failed to get information of process Id: 6256
 Failed to get information of process Id: 11012
 Failed to get information of process Id: 16524
 Failed to get information of process Id: 2236
@@ -179,45 +172,66 @@ Failed to get information of process Id: 1528
 PROCESS 0x3b38      magentproc.exe
 Failed to get information of process Id: 3872
 Failed to get information of process Id: 12796
-Failed to get information of process Id: 13668
-Failed to get information of process Id: 17944
-Failed to get information of process Id: 8596
-Failed to get information of process Id: 2716
 Failed to get information of process Id: 8452
-Failed to get information of process Id: 2204
 Failed to get information of process Id: 14564
-Failed to get information of process Id: 14340
-Failed to get information of process Id: 16592
-Failed to get information of process Id: 13540
-PROCESS 0x24a8      httpd.exe
-PROCESS 0x1180      vugen.exe
-PROCESS 0x4638      eowp.exe
-Failed to get information of process Id: 1980
-PROCESS 0x10f4      eowp.exe
-Failed to get information of process Id: 16860
-PROCESS 0x2da4      eowp.exe
-Failed to get information of process Id: 9224
-Failed to get information of process Id: 1308
-PROCESS 0x451c      eowp.exe
-PROCESS 0x4578      httpd.exe
-Failed to get information of process Id: 17020
-PROCESS 0x43e4      eowp.exe
-PROCESS 0x38f0      eowp.exe
 Failed to get information of process Id: 9884
 Failed to get information of process Id: 15940
 Failed to get information of process Id: 11104
-Failed to get information of process Id: 13092
-PROCESS 0x44a4      eowp.exe
-Failed to get information of process Id: 18160
-Failed to get information of process Id: 18776
-Failed to get information of process Id: 14332
-Failed to get information of process Id: 6316
-Failed to get information of process Id: 8312
-Failed to get information of process Id: 11380
-Failed to get information of process Id: 15212
-Failed to get information of process Id: 12248
-PROCESS 0x3f4       eowp.exe
-PROCESS 0x2414      eowp.exe
-Failed to get information of process Id: 9480
-Failed to get information of process Id: 9456
-Failed to get information of process Id: 2308
+PROCESS 0x137c      armsvc.exe
+Failed to get information of process Id: 5796
+Failed to get information of process Id: 12588
+Failed to get information of process Id: 1980
+Failed to get information of process Id: 5076
+Failed to get information of process Id: 18644
+Failed to get information of process Id: 7196
+Failed to get information of process Id: 16668
+Failed to get information of process Id: 6476
+Failed to get information of process Id: 18344
+Failed to get information of process Id: 11156
+Failed to get information of process Id: 17888
+PROCESS 0x1310      plex media server.exe
+PROCESS 0x3578      plexscripthost.exe
+Failed to get information of process Id: 19256
+PROCESS 0x3ba0      plex dlna server.exe
+PROCESS 0x2fb0      plex tuner service.exe
+Failed to get information of process Id: 3744
+PROCESS 0x934       utorrent.exe
+PROCESS 0x3f3c      utorrentie.exe
+PROCESS 0x49d0      utorrentie.exe
+PROCESS 0x45b8      helper.exe
+PROCESS 0x2014      excel.exe
+Failed to get information of process Id: 10760
+Failed to get information of process Id: 3692
+Failed to get information of process Id: 18324
+Failed to get information of process Id: 15688
+Failed to get information of process Id: 12616
+Failed to get information of process Id: 3124
+Failed to get information of process Id: 18516
+Failed to get information of process Id: 6172
+Failed to get information of process Id: 16628
+PROCESS 0x484c      vugen.exe
+PROCESS 0x1330      eowp.exe
+Failed to get information of process Id: 18216
+PROCESS 0x4614      eowp.exe
+Failed to get information of process Id: 6504
+PROCESS 0x45f8      eowp.exe
+Failed to get information of process Id: 9360
+Failed to get information of process Id: 8204
+Failed to get information of process Id: 10096
+PROCESS 0x391c      eowp.exe
+Failed to get information of process Id: 18204
+Failed to get information of process Id: 8288
+Failed to get information of process Id: 4692
+Failed to get information of process Id: 15752
+PROCESS 0x3124      httpd.exe
+Failed to get information of process Id: 17416
+PROCESS 0xaf8       httpd.exe
+Failed to get information of process Id: 4004
+Failed to get information of process Id: 14696
+Failed to get information of process Id: 4404
+Failed to get information of process Id: 9372
+Failed to get information of process Id: 4924
+Failed to get information of process Id: 18748
+Failed to get information of process Id: 18848
+Failed to get information of process Id: 9004
+Failed to get information of process Id: 15816

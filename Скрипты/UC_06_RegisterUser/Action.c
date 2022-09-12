@@ -1,5 +1,10 @@
 Action()
 {
+	lr_start_transaction("UC_HomePage");
+	
+	web_reg_find("Fail=NotFound",
+		"Text=sign up now",
+		LAST);
 
 	web_url("WebTours", 
 		"URL=http://localhost:1080/WebTours/", 
@@ -10,7 +15,11 @@ Action()
 		"Mode=HTML", 
 		LAST);
 	
-	lr_start_transaction("UC_6_RegisterUser");
+	lr_end_transaction("UC_HomePage", LR_AUTO);
+	
+	lr_think_time(5);
+	
+	lr_start_transaction("UC_OpenRegistration");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=sign up now",
@@ -22,9 +31,13 @@ Action()
 		LAST);
 
 	web_set_sockets_option("SSL_VERSION", "AUTO");
+	
+	lr_end_transaction("UC_OpenRegistration", LR_AUTO);
 
 	lr_think_time(5);
 	
+	lr_start_transaction("UC_FillRegistration");
+
 	web_reg_find("Fail=NotFound",
 		"Text=First time registering",
 		LAST);
@@ -48,8 +61,24 @@ Action()
 		"Snapshot=t19.inf", 
 		LAST);
 	
-	lr_end_transaction("UC_6_RegisterUser", LR_AUTO);
+	lr_end_transaction("UC_FillRegistration", LR_AUTO);
 
+	lr_think_time(5);
+	
+	lr_start_transaction("UC_FinishRegistration");
+
+	web_url("button_next.gif", 
+		"URL=http://localhost:1080/cgi-bin/welcome.pl?page=menus", 
+		"TargetFrame=body", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/login.pl", 
+		"Snapshot=t9.inf", 
+		"Mode=HTML", 
+		LAST);
+	
+	lr_end_transaction("UC_FinishRegistration", LR_AUTO);
+	
 	lr_think_time(5);
 	
 	lr_start_transaction("UC_01_LogOut");

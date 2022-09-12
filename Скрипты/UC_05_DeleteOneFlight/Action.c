@@ -13,6 +13,8 @@ Action()
 		"RequestUrl=*/nav.pl*",
 		LAST);
 		
+	lr_start_transaction("UC_HomePage");
+		
 	web_reg_find("Fail=NotFound",
 		"Text=sign up now",
 		LAST);
@@ -26,10 +28,12 @@ Action()
 		"Snapshot=t6.inf", 
 		"Mode=HTML", 
 		LAST);
+	
+	lr_end_transaction("UC_HomePage", LR_AUTO);
 
 	lr_think_time(5);
 	
-	lr_start_transaction("UC_01_Login");
+	lr_start_transaction("UC_Login");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=Welcome, <b>{username}</b>",
@@ -52,11 +56,11 @@ Action()
 		"Name=login.y", "Value=0", ENDITEM,
 		LAST);
 	
-	lr_end_transaction("UC_01_Login", LR_AUTO);
+	lr_end_transaction("UC_Login", LR_AUTO);
 	
 	lr_think_time(5);
 	
-	lr_start_transaction("UC_04_CheckItinerary");
+	lr_start_transaction("UC_OpenItinerary");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=flightID",
@@ -82,11 +86,11 @@ Action()
 		"Mode=HTML", 
 		LAST);
 	
-	lr_end_transaction("UC_04_CheckItinerary", LR_AUTO);
+	lr_end_transaction("UC_OpenItinerary", LR_AUTO);
 
 	lr_think_time(5);
 	
-	lr_start_transaction("UC_05_DeleteFlight");
+	lr_start_transaction("UC_CancelFlight");
 	
 	web_reg_find("Fail=Found",
 		"Text={flightID}",
@@ -108,9 +112,11 @@ Action()
 		"Name=removeFlights.y", "Value=8", ENDITEM,
 		LAST);
 	
-	lr_end_transaction("UC_05_DeleteFlight", LR_AUTO);
+	lr_end_transaction("UC_CancelFlight", LR_AUTO);
 
 	lr_think_time(5);
+	
+	lr_start_transaction("UC_LogOut");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=sign up now",
@@ -125,6 +131,8 @@ Action()
 		"Snapshot=t10.inf", 
 		"Mode=HTML", 
 		LAST);
+	
+	lr_end_transaction("UC_LogOut", LR_AUTO);
 
 	return 0;
 }
