@@ -1,7 +1,7 @@
 Registry settings:
 	(Default)	
 	ActiveProtocols
-		default	QTWeb
+		default	QTWeb,local_server
 	AllowChannelHooks
 		(Default)	NO
 		default	yes
@@ -166,7 +166,7 @@ Registry settings:
 		default	false
 	TestDir
 		(Default)	
-		default	E:\Micro Focus\Profile\Documents\VuGen\LoadTesting\UC_06_RegisterUser\data\
+		default	E:\Micro Focus\Profile\Documents\VuGen\Scripts\UC_06_RegisterUser\data\
 	TrapOnClient
 		default	true
 	TrapOnMainThreadOnly

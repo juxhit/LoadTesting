@@ -166,7 +166,7 @@ Registry settings:
 		default	false
 	TestDir
 		(Default)	
-		default	E:\Учеба\Репа\LoadTesting\Скрипты\UC_05_DeleteOneFlight\data\
+		default	E:\Micro Focus\Profile\Documents\VuGen\Scripts\UC_05_DeleteOneFlight\data\
 	TrapOnClient
 		default	true
 	TrapOnMainThreadOnly

@@ -8,10 +8,8 @@
 #include "lrw_custom_body.h"
 
 
-
 //--------------------------------------------------------------------
 // Global Variables
-
 
 
 #endif // _GLOBALS_H

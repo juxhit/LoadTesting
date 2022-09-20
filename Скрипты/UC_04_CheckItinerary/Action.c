@@ -1,9 +1,5 @@
 Action()
 {
-	lr_start_transaction("UC_04_CheckItinerary");
-
-	lr_start_transaction("HomePage");
-	
 	web_reg_save_param_attrib(
 		"ParamName=userSession",
 		"TagName=input",
@@ -28,12 +24,8 @@ Action()
 		"Snapshot=t21.inf", 
 		"Mode=HTML", 
 		LAST);
-	
-	lr_end_transaction("HomePage", LR_AUTO);
 
 	lr_think_time(5);
-	
-	lr_start_transaction("Login");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=Welcome, <b>{username}</b>",
@@ -56,11 +48,7 @@ Action()
 		"Name=login.y", "Value=13", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("Login", LR_AUTO);
-	
 	lr_think_time(5);
-	
-	lr_start_transaction("OpenItinerary");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=scheduled flights",
@@ -76,11 +64,7 @@ Action()
 		"Mode=HTML", 
 		LAST);
 	
-	lr_end_transaction("OpenItinerary", LR_AUTO);
-
 	lr_think_time(5);
-	
-	lr_start_transaction("LogOut");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=sign up now",
@@ -95,10 +79,6 @@ Action()
 		"Snapshot=t29.inf", 
 		"Mode=HTML", 
 		LAST);
-	
-	lr_end_transaction("LogOut", LR_AUTO);
-	
-	lr_end_transaction("UC_04_CheckItinerary", LR_AUTO);
 
 	return 0;
 }

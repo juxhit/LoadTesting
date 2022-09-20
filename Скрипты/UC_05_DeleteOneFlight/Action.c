@@ -1,10 +1,7 @@
 Action()
 {
-	lr_start_transaction("UC_05_DeleteOneFlight");
 
-	lr_start_transaction("HomePage");
-	
-	/*Correlation comment - Do not change!  Original value='134675.94127177zQcHDQDpHcQVzzzHtVfztpDzcDHf' Name ='userSession' Type ='ResponseBased'*/
+/*Correlation comment - Do not change!  Original value='134675.94127177zQcHDQDpHcQVzzzHtVfztpDzcDHf' Name ='userSession' Type ='ResponseBased'*/
 	web_reg_save_param_attrib(
 		"ParamName=userSession",
 		"TagName=input",
@@ -29,12 +26,8 @@ Action()
 		"Snapshot=t6.inf", 
 		"Mode=HTML", 
 		LAST);
-	
-	lr_end_transaction("HomePage", LR_AUTO);
 
 	lr_think_time(5);
-	
-	lr_start_transaction("Login");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=Welcome, <b>{username}</b>",
@@ -57,14 +50,20 @@ Action()
 		"Name=login.y", "Value=0", ENDITEM,
 		LAST);
 	
-	lr_end_transaction("Login", LR_AUTO);
-	
 	lr_think_time(5);
 	
-	lr_start_transaction("OpenItinerary");
-	
 	web_reg_find("Fail=NotFound",
-		"Text/IC=<title>Flights List</title>",
+		"Text=flightID",
+		LAST);
+
+	web_reg_save_param_attrib(
+		"ParamName=flightID",
+		"TagName=input",
+		"Extract=value",
+		"Name=flightID",
+		"Type=hidden",
+		SEARCH_FILTERS,
+		"IgnoreRedirections=No",
 		LAST);
 
 	web_url("Itinerary Button", 
@@ -76,26 +75,28 @@ Action()
 		"Snapshot=t8.inf", 
 		"Mode=HTML", 
 		LAST);
-	
-	lr_end_transaction("OpenItinerary", LR_AUTO);
 
 	lr_think_time(5);
 	
-	lr_start_transaction("CancelFlight");
-	
-	web_submit_form("itinerary.pl", 
-		"Snapshot=t18.inf", 
-		ITEMDATA, 
-		"Name=1", "Value=on", ENDITEM, 
-		"Name=removeFlights.x", "Value=47", ENDITEM, 
-		"Name=removeFlights.y", "Value=11", ENDITEM, 
+	web_reg_find("Fail=Found",
+		"Text={flightID}",
 		LAST);
-	
-	lr_end_transaction("CancelFlight", LR_AUTO);
 
-	lr_think_time(5);
-	
-	lr_start_transaction("LogOut");
+	web_submit_data("itinerary.pl",
+		"Action=http://localhost:1080/cgi-bin/itinerary.pl",
+		"Method=POST",
+		"TargetFrame=",
+		"RecContentType=text/html",
+		"Referer=http://localhost:1080/cgi-bin/itinerary.pl",
+		"Snapshot=t9.inf",
+		"Mode=HTML",
+		ITEMDATA,
+		"Name=1", "Value=on", ENDITEM,
+		"Name=flightID", "Value={flightID}", ENDITEM,
+		"Name=.cgifields", "Value=1", ENDITEM,
+		"Name=removeFlights.x", "Value=47", ENDITEM,
+		"Name=removeFlights.y", "Value=8", ENDITEM,
+		LAST);
 	
 	web_reg_find("Fail=NotFound",
 		"Text=sign up now",
@@ -110,10 +111,6 @@ Action()
 		"Snapshot=t10.inf", 
 		"Mode=HTML", 
 		LAST);
-	
-	lr_end_transaction("LogOut", LR_AUTO);
-	
-	lr_end_transaction("UC_05_DeleteOneFlight", LR_AUTO);
 
 	return 0;
 }

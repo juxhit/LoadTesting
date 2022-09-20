@@ -1,11 +1,5 @@
 Action()
 {
-	lr_start_transaction("UC_03_BuyFlight");
-
-	lr_start_transaction("HomePage");
-	
-	web_set_sockets_option("SSL_VERSION", "AUTO");
-	
 	web_reg_save_param_attrib(
 		"ParamName=userSession",
 		"TagName=input",
@@ -16,7 +10,7 @@ Action()
 		"IgnoreRedirections=No",
 		"RequestUrl=*/nav.pl*",
 		LAST);
-		
+	
 	web_reg_find("Fail=NotFound",
 		"Text=sign up now",
 		LAST);
@@ -30,12 +24,8 @@ Action()
 		"Snapshot=t21.inf", 
 		"Mode=HTML", 
 		LAST);
-	
-	lr_end_transaction("HomePage", LR_AUTO);
 
 	lr_think_time(5);
-	
-	lr_start_transaction("Login");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=Welcome, <b>{username}</b>",
@@ -58,15 +48,7 @@ Action()
 		"Name=login.y", "Value=13", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("Login", LR_AUTO);
-	
 	lr_think_time(5);
-	
-	lr_start_transaction("OpenFlights");
-	
-	web_reg_find("Fail=NotFound",
-		"Text=Departure City",
-		LAST);
 	
 	web_url("Search Flights Button", 
 		"URL=http://localhost:1080/cgi-bin/welcome.pl?page=search", 
@@ -78,22 +60,8 @@ Action()
 		"Mode=HTML", 
 		LAST);
 	
-	lr_end_transaction("OpenFlights", LR_AUTO);
-	
 	lr_think_time(5);
-	
-	lr_start_transaction("SearchFlights");
-	
-	web_reg_find("Fail=NotFound",
-		"Text=Flight departing from <B>{depart}</B> to <B>{arrive}</B> on <B>{departDate}",
-		LAST);
-	
-	web_reg_save_param("outboundFlight",
-		"LB=outboundFlight\" value=\"",
-		"RB=\"",
-		"NotFound=ERROR",
-		LAST);
-	
+
 	web_submit_data("reservations.pl", 
 		"Action=http://localhost:1080/cgi-bin/reservations.pl", 
 		"Method=POST", 
@@ -113,22 +81,12 @@ Action()
 		"Name=seatType", "Value={seatType}", ENDITEM, 
 		"Name=.cgifields", "Value=roundtrip", ENDITEM, 
 		"Name=.cgifields", "Value=seatType", ENDITEM, 
-		"Name=.cgifields", "Value=seatPref", ENDITEM,  
+		"Name=.cgifields", "Value=seatPref", ENDITEM, 
 		"Name=findFlights.x", "Value=24", ENDITEM, 
 		"Name=findFlights.y", "Value=13", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("SearchFlights", LR_AUTO);
-	
 	lr_think_time(5);
-	
-	lr_start_transaction("ChooseFlight");
-
-	web_reg_find("Fail=NotFound",
-		"Text=Save this Credit Card Information",
-		LAST);
-	
-//	outboundFlight" value="
 
 	web_submit_data("reservations.pl_2", 
 		"Action=http://localhost:1080/cgi-bin/reservations.pl", 
@@ -139,7 +97,7 @@ Action()
 		"Snapshot=t25.inf", 
 		"Mode=HTML", 
 		ITEMDATA, 
-		"Name=outboundFlight", "Value={outboundFlight}", ENDITEM, 
+		"Name=outboundFlight", "Value=000;0;09/08/2022", ENDITEM, 
 		"Name=numPassengers", "Value=1", ENDITEM, 
 		"Name=advanceDiscount", "Value=0", ENDITEM, 
 		"Name=seatType", "Value=Coach", ENDITEM, 
@@ -148,15 +106,9 @@ Action()
 		"Name=reserveFlights.y", "Value=12", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("ChooseFlight", LR_AUTO);
-	
 	lr_think_time(5);
-	
-	lr_start_transaction("PayFlight");
 
-	web_reg_find("Fail=NotFound",
-		"Text=Thank you for booking through Web Tours",
-		LAST);
+	web_set_sockets_option("SSL_VERSION", "AUTO");
 
 	web_submit_data("reservations.pl_3", 
 		"Action=http://localhost:1080/cgi-bin/reservations.pl", 
@@ -176,9 +128,9 @@ Action()
 		"Name=expDate", "Value={expDate}", ENDITEM, 
 		"Name=oldCCOption", "Value=", ENDITEM, 
 		"Name=numPassengers", "Value=1", ENDITEM, 
-		"Name=seatType", "Value={seatType}", ENDITEM, 
-		"Name=seatPref", "Value={seatPref}", ENDITEM, 
-		"Name=outboundFlight", "Value={outboundFlight}", ENDITEM, 
+		"Name=seatType", "Value=Coach", ENDITEM, 
+		"Name=seatPref", "Value=None", ENDITEM, 
+		"Name=outboundFlight", "Value=000;0;09/08/2022", ENDITEM, 
 		"Name=advanceDiscount", "Value=0", ENDITEM, 
 		"Name=returnFlight", "Value=", ENDITEM, 
 		"Name=JSFormSubmit", "Value=off", ENDITEM, 
@@ -187,31 +139,7 @@ Action()
 		"Name=buyFlights.y", "Value=14", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("PayFlight", LR_AUTO);
-	
 	lr_think_time(5);
-	
-	lr_start_transaction("OpenItinerary");
-
-	web_reg_find("Fail=NotFound",
-		"Text=scheduled flights",
-		LAST);
-
-	web_url("Itinerary Button", 
-		"URL=http://localhost:1080/cgi-bin/welcome.pl?page=itinerary", 
-		"TargetFrame=body", 
-		"Resource=0", 
-		"RecContentType=text/html", 
-		"Referer=http://localhost:1080/cgi-bin/nav.pl?page=menu&in=flights", 
-		"Snapshot=t27.inf", 
-		"Mode=HTML", 
-		LAST);
-	
-	lr_end_transaction("OpenItinerary", LR_AUTO);
-	
-	lr_think_time(5);
-	
-	lr_start_transaction("LogOut");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=sign up now",
@@ -226,10 +154,6 @@ Action()
 		"Snapshot=t29.inf", 
 		"Mode=HTML", 
 		LAST);
-	
-	lr_end_transaction("LogOut", LR_AUTO);
-	
-	lr_end_transaction("UC_03_BuyFlight", LR_AUTO);
 
 	return 0;
 }
