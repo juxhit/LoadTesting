@@ -1,6 +1,10 @@
 Action()
 {
-	lr_start_transaction("UC_HomePage");
+	lr_start_transaction("UC_06_RegisterUser");
+
+	lr_start_transaction("HomePage");
+	
+	web_set_sockets_option("SSL_VERSION", "AUTO");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=sign up now",
@@ -15,11 +19,11 @@ Action()
 		"Mode=HTML", 
 		LAST);
 	
-	lr_end_transaction("UC_HomePage", LR_AUTO);
+	lr_end_transaction("HomePage", LR_AUTO);
 	
 	lr_think_time(5);
 	
-	lr_start_transaction("UC_OpenRegistration");
+	lr_start_transaction("OpenRegistration");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=First time registering",
@@ -30,28 +34,24 @@ Action()
 		"Snapshot=t17.inf", 
 		LAST);
 
-	web_set_sockets_option("SSL_VERSION", "AUTO");
-	
-	lr_end_transaction("UC_OpenRegistration", LR_AUTO);
+	lr_end_transaction("OpenRegistration", LR_AUTO);
 
 	lr_think_time(5);
 	
-	lr_start_transaction("UC_FillRegistration");
+	lr_start_transaction("FillRegistration");
 	
 	web_reg_find("Fail=NotFound",
-		"Text/IC=Thank you, <b>{username}</b>",
+		"Text/IC=Thank you, <b>{randomuser}</b>",
 		LAST);
 	
 	web_submit_form("login.pl", 
 		"Snapshot=t18.inf", 
 		ITEMDATA, 
-		"Name=username", "Value={username}", ENDITEM, 
-		"Name=password", "Value={password}", ENDITEM, 
-		"Name=passwordConfirm", "Value={password}", ENDITEM, 
-		"Name=firstName", "Value={firstName}", ENDITEM, 
-		"Name=lastName", "Value={lastName}", ENDITEM, 
-		"Name=address1", "Value={address1}", ENDITEM, 
-		"Name=address2", "Value={address2}", ENDITEM, 
+		"Name=username", "Value={randomuser}", ENDITEM, 
+		"Name=password", "Value={randompass}", ENDITEM, 
+		"Name=passwordConfirm", "Value={randompass}", ENDITEM, 
+		"Name=firstName", "Value={randomuser}", ENDITEM, 
+		"Name=lastName", "Value={randompass}", ENDITEM, 
 		"Name=register.x", "Value=42", ENDITEM, 
 		"Name=register.y", "Value=10", ENDITEM, 
 		LAST);
@@ -61,14 +61,14 @@ Action()
 		"Snapshot=t19.inf", 
 		LAST);
 	
-	lr_end_transaction("UC_FillRegistration", LR_AUTO);
+	lr_end_transaction("FillRegistration", LR_AUTO);
 
 	lr_think_time(5);
 	
-	lr_start_transaction("UC_FinishRegistration");
+	lr_start_transaction("FinishRegistration");
 	
 	web_reg_find("Fail=NotFound",
-		"Text=Welcome, <b>{username}</b>",
+		"Text=Welcome, <b>{randomuser}</b>",
 		LAST);
 
 	web_url("button_next.gif", 
@@ -81,11 +81,11 @@ Action()
 		"Mode=HTML", 
 		LAST);
 	
-	lr_end_transaction("UC_FinishRegistration", LR_AUTO);
+	lr_end_transaction("FinishRegistration", LR_AUTO);
 	
 	lr_think_time(5);
 	
-	lr_start_transaction("UC_01_LogOut");
+	lr_start_transaction("LogOut");
 	
 	web_reg_find("Fail=NotFound",
 		"Text=sign up now",
@@ -96,7 +96,9 @@ Action()
 		"Snapshot=t20.inf", 
 		LAST);
 	
-	lr_end_transaction("UC_01_LogOut", LR_AUTO);
+	lr_end_transaction("LogOut", LR_AUTO);
+	
+	lr_end_transaction("UC_06_RegisterUser", LR_AUTO);
 
 	return 0;
 }
