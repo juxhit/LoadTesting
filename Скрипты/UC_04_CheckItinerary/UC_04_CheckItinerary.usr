@@ -52,9 +52,15 @@ vuser_init=cci
 Action=cci
 vuser_end=cci
 [TransactionsOrder]
-Order=
+Order="UC_04_CheckItinerary__*delimiter*__HomePage__*delimiter*__Login__*delimiter*__OpenItinerary__*delimiter*__LogOut"
 [StateManagement]
 LastReplayStatus=1
 [ActiveReplay]
 LastReplayedRunName=result1
 ActiveRunName=result1
+[Transactions]
+UC_04_CheckItinerary=
+HomePage=
+Login=
+OpenItinerary=
+LogOut=

@@ -1,11 +1,33 @@
 Registry settings:
 	COM Options
 	General Options
+		ThinkTimeThreshold	true
+		ThinkTimeThresholdVal	3
+		GenerateRecordingLog	false
+		RecordPreInvocationMessages	true
+		RecordPostInvocationMessages	true
+		RecoverDeletedActions	false
+		NumberOfLinesPerFile	false
+		NumberOfLinesPerFileVal	60000
+		CloseAUT	false
+		FixedThinkTime	false
+		FixedThinkTimeVal	3
+		TrapLocalServer	false
+		GenLongStrInSeparateFile	true
+		default	100
+		DumpProceeses	true
+		PrintOutParamsValues	false
+		DeclarePrimitivesAsLocals	true
+		ReusePrimitiveVariables	true
+		UseFullTypeNames	false
+		UseProtectedAppRecording	false
+		UseRecordingMalfunctiondiagnostics	true
 		RecordingMalfuctiondiagnostics
 			DetectApplicationCrashDetectable	true
 			DetectZeroEventNeedDetect	true
 			DetectApplicationCrashEnableDetect	true
 			EnableCancelButton	true
+			DetectZeroEventInterval	180
 	JS Options
 		JSComRecordingSupport	false
 	Protocol Options
@@ -19,4 +41,11 @@ Registry settings:
 					wsiCsExecutable	\cs\bin\analyzer.exe
 					wsi11TestAssertionFileLocation	\common\profiles\SSBP10_BP11_TAD.xml
 	Script Options
+		CorrelateSmallNumbers	false
+		CorrelateLargeNumbers	false
+		CorrelateStrings	false
+		CorrelateArrays	true
+		CorrelateStructures	true
+		CastArrayReferences	false
+		CastObjectReferences	false
 
